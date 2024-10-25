@@ -1,0 +1,22 @@
+[package]
+name = "quinn_ml_kem"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+aws-lc-rs = "1.10.0"
+quinn = { version = "0.11.5", default-features = false, features = ["rustls-aws-lc-rs", "runtime-tokio"] }
+# quinn = { version = "=0.11.5", default-features = false, features = ["runtime-tokio"] }
+# quinn-proto = { version = "=0.11.8", default-features = false }
+rand = "0.8.5"
+rcgen = { version = "0.13.1", default-features = false, features = ["aws_lc_rs"] }
+rustls = { version = "0.23.14", default-features = false, features = ["custom-provider", "aws-lc-rs"]}
+rustls-post-quantum = { version = "0.1.0", default-features = false }
+socket2 = "0.5.7"
+tokio = { version = "1.40.0", default-features = false, features = ["macros", "rt-multi-thread"] }
+
+[patch.crates-io]
+# quinn = { git = "https://github.com/stormshield-gt/quinn.git", rev = "2c4d56b80e26fea382692776dde63e579f7ad3f0" }
+# quinn-proto = { git = "https://github.com/stormshield-gt/quinn.git", rev = "2c4d56b80e26fea382692776dde63e579f7ad3f0" }
+quinn = { path = "../../externals/quinn/quinn"}
+# quinn-proto = { path = "../../externals/quinn/quinn-proto"}
